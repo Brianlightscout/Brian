@@ -1,0 +1,33 @@
+body {
+    background-image: url(1208868.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 640px;
+}
+
+div {
+    position: relative;
+    box-shadow: 0 38px 400px -80px rgb(0, 0, 0);
+    top: 7%;
+    backdrop-filter: blur(7px);
+    width: 450px;
+    height: 550px;
+    border-radius: 30px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+img {position: relative;
+    top: -160px;
+    margin: auto;
+    width: 140px;
+    height: 140px;
+    border-radius: 75%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 8px 100px -30px rgb(255, 0, 0);
+}
