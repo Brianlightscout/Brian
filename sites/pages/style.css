@@ -6,13 +6,15 @@ body {
     height: 640px;
 }
 
-div {
+#main {
     position: relative;
-    box-shadow: 0 38px 400px -80px rgb(0, 0, 0);
+    box-shadow: 0 38px 400px -80px rgba(0, 0, 0, 0.575);
     top: 7%;
-    backdrop-filter: blur(10px);
-    width: 450px;
+    backdrop-filter: blur(25px);
+    max-width: 450px;
+    min-width: none;
     height: 550px;
+    min-height: 350px;
     border-radius: 30px;
     margin: auto;
     display: flex;
@@ -23,31 +25,63 @@ div {
 
 #selfie {
     position: relative;
-    top: -120px;
+    top: -35px;
     margin: auto;
     width: 140px;
     height: 140px;
     border-radius: 75%;
     object-fit: cover;
     display: block;
-    box-shadow: 0 8px 100px -30px rgb(255, 0, 0);
+    box-shadow: 0 8px 100px -30px rgba(0, 0, 0, 0.089);
+}
+
+p {
+    position: relative;
+    top: -120px;
+    left: 110px;
+    color: rgb(0, 0, 0);
 }
 
 #insta {
     position: relative;
-    top: -110px;
+    top: 50px;
     left: 50px;
     width: 50px;
     height: 50px;
     transition: 0.2s;
+    
 }
 
 #insta:hover {
     position: relative;
-    top: -105px;
-    left: 48px;
-    width: 55px;
-    height: 55px;
+    top: 50px;
+    left: 49px;
+    width: 53px;
+    height: 53px;
     cursor: pointer;
     transition: 0.2s;
+    
 }
+
+#gith {
+    position: relative;
+    top: -47px;
+    left: 150px;
+    width: 37px;
+    height: 37px;
+    transition: 0.2s;
+    
+}
+
+#gith:hover {
+    position: relative;
+    top: -49px;
+    left: 149px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    
+}
+
+
