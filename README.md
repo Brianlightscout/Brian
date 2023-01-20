@@ -1,6 +1,6 @@
 ##  Olá! Eu sou o Brian Lucas🖐
 
-[![ Youtube ](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@brianmiranda9646/videos)
+
 [![ Instagram ](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/brian8507m)
 
 
