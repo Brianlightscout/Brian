@@ -20,7 +20,7 @@ section > div#imagen {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.39);
     background-position: center;
     background-size: cover;
-    height: 100px;
+    height: 10px;
 }
 
 section > h1 {
