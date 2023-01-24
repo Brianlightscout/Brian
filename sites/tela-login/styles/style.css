@@ -1,0 +1,28 @@
+body {
+    background-color: #efcaa6;
+}
+
+section {
+    position: absolute;
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.308);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+section > div#imagen {
+    background-image: url("https://i.ibb.co/BwxgxsF/laptop-2298286.png");
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.39);
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+}
+
+section > h1 {
+    text-align: center;
+}
