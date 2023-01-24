@@ -1,12 +1,19 @@
-body {
-    background-color: #00ff15;
+body, html {
+    height: 100%;
+    background-image: url('https://i.ibb.co/7J539JP/fiber-4814456.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0px;
+    
+    
 }
 
 section {
     position: absolute;
     width: 300px;
     height: 500px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 20px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.308);
     top: 50%;
@@ -19,9 +26,9 @@ section {
 section > div#imagen {
     background-image: url("https://i.ibb.co/BwxgxsF/laptop-2298286.png");
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.39);
-    background-position: center ;
+    background-position: center center ;
     background-size: cover;
-    height: 100px;
+    height: 150px;
 }
 
 form > h1 {
