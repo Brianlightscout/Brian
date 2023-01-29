@@ -1,5 +1,8 @@
 body, html {
-    background-color: skyblue;
+    background-image: url("https://i.ibb.co/7J539JP/fiber-4814456.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     margin: 0px;
     
     
@@ -9,7 +12,8 @@ section {
     position: absolute;
     width: 300px;
     height: 500px;
-    background-color: rgb(255, 255, 255);
+    background-color: transparent;
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.308);
     top: 50%;
@@ -19,17 +23,32 @@ section {
     overflow: hidden;
 }
 
-section > div#imagen {
-    background-image: url("https://i.ibb.co/BwxgxsF/laptop-2298286.png");
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.39);
-    background-position: center center ;
-    background-size: cover;
-    height: 150px;
+
+
+
+
+img {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    width: 75px;
+    height: 75px;
+    
+    background-color: transparent;
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+    transform: translate(-50%, -15%);
 }
 
 form > h1 {
+    position: relative;
+    color: white;
+    top: 155px;
     text-align: center;
 }
+
+
 
 form > div > input.input {
     position: absolute;
@@ -65,15 +84,17 @@ input#input_senha {
 
 
 form > div.campo {
-    background-color: #efcaa6;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
     display: block;
     position: relative;
     border-radius: 12px;
     padding-right: -20px;
+    box-shadow: 1px 1px 10px black;
     width: 75%;
     height: 20%;
     margin: 5px 0px;
-    
+    top: 175px;
 
     
     left: 50%;
@@ -84,7 +105,7 @@ form > div.campo {
 form > div > i#key {
     position: relative;
     margin-left: -76px;
-    top: 2px;
+    top: 1px;
     
     
     
@@ -92,7 +113,7 @@ form > div > i#key {
 
 form > div > i#person {
     position: relative;
-    top: 2px;
+    top: 1px;
     
     
     
