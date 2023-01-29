@@ -1,9 +1,7 @@
 
 @media screen and (min-width: 600px) and (max-width: 992px) {
 
-    body {
-        background-color: skyblue;
-    }
+    
     
     section {
         position: absolute;
@@ -17,9 +15,7 @@
 
 @media screen and (min-width: 992px) and (max-width: 1400px) {
 
-    body {
-        background-color: skyblue;
-    }
+    
     
     section {
         position: absolute;
