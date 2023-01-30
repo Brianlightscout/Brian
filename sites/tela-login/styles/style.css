@@ -1,128 +1,98 @@
-body, html {
-    background-image: url("https://i.ibb.co/7J539JP/fiber-4814456.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    margin: 0px;
-    
-    
+body {
+    background-color: #4e4f5d;
 }
-
 section {
     position: absolute;
-    width: 300px;
-    height: 500px;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.308);
     top: 50%;
     left: 50%;
+    background-color: #35353b;
+    
+    width: 50vw;
+    height: 70vh;
+    box-shadow: 7px 7px 3px rgba(0, 0, 0, 0.322);
+    border-radius: 20px;
+    
     transform: translate(-50%, -50%);
     transition: .5s;
-    overflow: hidden;
 }
 
+div#img {
+    background-image: url("https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067_960_720.png");
+    width: 100%;
+    height: 30%;
+    background-size: cover;
+    background-position: center center;
+    float: top;
+    border-radius: 20px;
+    background-attachment: fixed;
+}
 
-
-
-
-img {
-    position: absolute;
+form {
+    position: relative;
+    margin-top: 20vh;
+    width: 45%;
+    height: 100%;
     left: 50%;
-    top: 15%;
-    width: 75px;
-    height: 75px;
-    
-    background-color: transparent;
-    backdrop-filter: blur(50px);
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px black;
-    transform: translate(-50%, -15%);
+    float: left;
+    transform: translate(-50%);
+
 }
 
 form > h1 {
-    position: relative;
-    color: white;
-    top: 155px;
     text-align: center;
-}
-
-
-
-form > div > input.input {
-    position: absolute;
-    border-radius: 12px;
-    border: .5px solid black;
-    width: calc(100% - 36px);
-    height: 78%;
-    transform: translateX(2px);
-    top: 1px;
-    left: 27px;
-    
+    margin-top: 47px;
+    color: #ffb68f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 39px;
+   
     
 }
+input#user {
+    padding: 10px 10px;
+    margin-bottom: 20px;
 
-form > div > input#input_senha {
-    position: absolute;
-    border-radius: 12px;
-    border: .5px solid black;
-    width: calc(100% - 36px);
-    height: 78%;
-    transform: translateX(2px);
-    top: 1px;
-    left: 27px;
-    
+}
+input#sen {
+    padding: 10px 10px;
+    margin-top: 20px;
     
 }
-
-input#input_senha {
+form > input.campo {
     position: relative;
-    left: -1.5px;
-}
-
-
-
-form > div.campo {
-    background-color: transparent;
-    backdrop-filter: blur(20px);
-    display: block;
-    position: relative;
-    border-radius: 12px;
-    padding-right: -20px;
-    box-shadow: 1px 1px 10px black;
-    width: 75%;
-    height: 20%;
-    margin: 5px 0px;
-    top: 175px;
-
-    
     left: 50%;
     transform: translate(-50%);
-    
+    border-radius: 7px;
+    width: 74%;
+    background-color:  #303038;
+    border: 1px solid #ffb68f;
 }
 
-form > div > i#key {
+form > input.campo:hover {
+    box-shadow: 1px 1px 3px black;
+}
+
+form > button#btn {
     position: relative;
-    margin-left: -76px;
-    top: 1px;
+    background-color: #ffb68f;
+    border-radius: 20px;
+    
+    border: .5px solid black;
+    padding: 5px 5px;
+    left: 112%;
+    width: 95px;
     
     
+    margin-top: 50px;
+    font-size: large;
+    color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transform: translate(-50%);
+    transition: .5s;
     
 }
 
-form > div > i#person {
-    position: relative;
-    top: 1px;
-    
-    
-    
-}
-
-form > div > i {
-    color: white;
-    
-    
-    top: 20px;
-    
+form > button#btn:hover {
+    box-shadow: 2px 2px 5px black;
+    transition: .1s;
+    cursor: pointer;
 }
