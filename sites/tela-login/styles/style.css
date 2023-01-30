@@ -1,6 +1,19 @@
 body {
-    background-color: #4e4f5d;
+    /*background-color: #4e4f5d;*/
+    background-image: linear-gradient(to right, #4e4f5d, #ffb68f);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    
 }
+
+h1#bti {
+    margin: 0px;
+    color: aliceblue;
+    text-shadow: 1px 1px 10px black;
+    
+}
+
 section {
     position: absolute;
     top: 50%;
@@ -9,7 +22,7 @@ section {
     
     width: 50vw;
     height: 70vh;
-    box-shadow: 7px 7px 3px rgba(0, 0, 0, 0.322);
+    box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.705);
     border-radius: 20px;
     
     transform: translate(-50%, -50%);
