@@ -87,15 +87,15 @@ form > input.campo:hover {
 form > button#btn {
     position: relative;
     background-color: #ffb68f;
-    border-radius: 20px;
+    border-radius: 7px;
     
     border: .5px solid black;
     padding: 5px 5px;
-    left: 126%;
-    width: 95px;
+    left: 50%;
+    width: 110%;
     
     
-    margin-top: 50px;
+    margin-top: 25px;
     font-size: large;
     color: whitesmoke;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
