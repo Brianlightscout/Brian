@@ -21,7 +21,7 @@ section#sec_form {
     background-color: #35353b;
     
     width: 65vw;
-    height: 80vh;
+    height: 75vh;
     box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.705);
     border-radius: 20px;
     
@@ -31,18 +31,26 @@ section#sec_form {
 
 section.redes_sociais img {
     position: relative;
-    width: 50px;
-    height: 35px;
+    width: 40px;
+    height: 27px;
     background-color: #ffb68f13;
-    border-radius: 10px;
-    left: 14%;
+    border-radius: 50%;
+    left: 50%;
+    box-sizing: border-box;
+    transform: translate(-100%);
+    
+}
+
+section.redes_sociais img:hover {
+    
+    border: 2px solid #ffe7d3;
     
 }
 
 div#img {
     background-image: url("https://cdn.pixabay.com/photo/2012/08/27/14/19/mountains-55067_960_720.png");
     width: 100%;
-    height: 30%;
+    height: 25%;
     background-size: cover;
     background-position: center center;
     float: top;
@@ -55,7 +63,7 @@ form {
     
     width: 45%;
     height: 100%;
-    top: 75%;
+    top: 67%;
     left: 50%;
     float: left;
     transform: translate(-50%, -50%);
@@ -111,7 +119,7 @@ form > button#btn {
     width: 105%;
     
     
-    margin-top: 90px;
+    margin-top: 30px;
     font-size: large;
     color: whitesmoke;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
