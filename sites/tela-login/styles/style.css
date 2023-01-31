@@ -20,7 +20,7 @@ section {
     left: 50%;
     background-color: #35353b;
     
-    width: 50vw;
+    width: 75vw;
     height: 70vh;
     box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.705);
     border-radius: 20px;
@@ -75,7 +75,7 @@ form > input.campo {
     left: 50%;
     transform: translate(-50%);
     border-radius: 7px;
-    width: 74%;
+    width: 90%;
     background-color:  #303038;
     border: 1px solid #ffb68f;
 }
@@ -91,7 +91,7 @@ form > button#btn {
     
     border: .5px solid black;
     padding: 5px 5px;
-    left: 112%;
+    left: 126%;
     width: 95px;
     
     
