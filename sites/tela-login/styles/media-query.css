@@ -7,9 +7,9 @@
         float: inline-end;
     }
 
-    section {
+    section#sec_form {
         width: 75vw;
-        height: 70vh;
+        height: 80vh;
         transition: .5s;
     }
 

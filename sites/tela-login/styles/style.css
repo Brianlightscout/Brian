@@ -14,19 +14,29 @@ h1#bti {
     
 }
 
-section {
+section#sec_form {
     position: absolute;
     top: 50%;
     left: 50%;
     background-color: #35353b;
     
-    width: 75vw;
-    height: 70vh;
+    width: 65vw;
+    height: 80vh;
     box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.705);
     border-radius: 20px;
     
     transform: translate(-50%, -50%);
     transition: .5s;
+}
+
+section.redes_sociais img {
+    position: relative;
+    width: 50px;
+    height: 35px;
+    background-color: #ffb68f13;
+    border-radius: 10px;
+    left: 14%;
+    
 }
 
 div#img {
@@ -42,12 +52,13 @@ div#img {
 
 form {
     position: relative;
-    margin-top: 20vh;
+    
     width: 45%;
     height: 100%;
+    top: 75%;
     left: 50%;
     float: left;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
 
 }
 
@@ -60,13 +71,18 @@ form > h1 {
    
     
 }
+
+form > p {
+    text-align: center;
+    color: #ffb68f;
+}
 input#user {
-    padding: 10px 10px;
+    padding: 7px 7px;
     margin-bottom: 20px;
 
 }
 input#sen {
-    padding: 10px 10px;
+    padding: 7px 7px;
     margin-top: 20px;
     
 }
@@ -74,7 +90,7 @@ form > input.campo {
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    border-radius: 7px;
+    border-radius: 15px;
     width: 95%;
     background-color:  #303038;
     border: 1px solid #ffb68f;
@@ -87,15 +103,15 @@ form > input.campo:hover {
 form > button#btn {
     position: relative;
     background-color: #ffb68f;
-    border-radius: 7px;
+    border-radius: 15px;
     
     border: .5px solid black;
     padding: 5px 5px;
     left: 50%;
-    width: 110%;
+    width: 105%;
     
     
-    margin-top: 25px;
+    margin-top: 90px;
     font-size: large;
     color: whitesmoke;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
