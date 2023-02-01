@@ -1,7 +1,4 @@
 @media screen and (min-width: 750px) and (max-width: 992px) {
-    body {
-        background-image: linear-gradient(to right, #4e4f5d, #ffb68f);
-    }
     div#img {
         float: left;
         width: 30%;
