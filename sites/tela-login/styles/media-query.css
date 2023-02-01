@@ -1,37 +1,83 @@
 @media screen and (min-width: 750px) and (max-width: 992px) {
+    body {
+        background-image: linear-gradient(to right, #4e4f5d, #ffb68f);
+    }
     div#img {
+        float: left;
+        width: 30%;
+        height: 100%;
         
     }
 
-    form {
-        float: inline-end;
+    div#form {
+        position: relative;
+        top: 50%;
+        left: 35%;
+        
+        width: 70%;
+        
+        
+        
     }
 
     section#sec_form {
         width: 75vw;
-        height: 80vh;
         transition: .5s;
     }
 
-    form > button#btn {
+    div#form > button#btn {
         position: relative;
         
         transform: translate(-50%);
         transition: .5s;
         
+    }
+
+    div#form > button#btn {
+        position: relative;
+        width: 80%;
+        
+    }
+
+    div#form > input.campo {
+        position: relative;
+        width: 75%;
     }
     
 }
 
 
 @media screen and (min-width: 992px) {
-    
+    body {
+        background-image: linear-gradient(to right, #4e4f5d, #ffb68f);
+    }
 
-    form > button#btn {
-        position: relative;
-        
-        transform: translate(-50%);
+    div#img {
+        float: left;
+        width: 50%;
+        height: 100%;
         
     }
-    
+
+    section#sec_form {
+        width: 80vw;
+    }
+
+    div#form {
+        position: relative;
+        top: 50%;
+        left: 25%;
+        width: 50%; 
+    }
+
+    div#form > button#btn {
+        position: relative;
+        width: 80%;
+        
+    }
+
+    div#form > input.campo {
+        position: relative;
+        width: 75%;
+    }
 }

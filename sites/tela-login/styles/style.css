@@ -1,17 +1,20 @@
-body {
+body, html {
+    position: relative;
     /*background-color: #4e4f5d;*/
-    background-image: linear-gradient(to right, #4e4f5d, #ffb68f);
+    /*background-image: linear-gradient(to right, #4e4f5d, #ffb68f);*/
+    background-color: #4e4f5d;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
     
 }
 
-h1#bti {
-    margin: 0px;
-    color: aliceblue;
-    text-shadow: 1px 1px 10px black;
-    
+main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 
 section#sec_form {
@@ -20,13 +23,14 @@ section#sec_form {
     left: 50%;
     background-color: #35353b;
     
-    width: 65vw;
-    height: 75vh;
+    width: 250px;
+    height: 500px;
     box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.705);
     border-radius: 20px;
     
     transform: translate(-50%, -50%);
     transition: .5s;
+    
 }
 
 section.redes_sociais img {
@@ -53,24 +57,24 @@ div#img {
     height: 25%;
     background-size: cover;
     background-position: center center;
-    float: top;
     border-radius: 20px;
     background-attachment: fixed;
+    
 }
 
-form {
+div#form {
     position: relative;
     
     width: 45%;
     height: 100%;
-    top: 67%;
+    top: 45%;
     left: 50%;
     float: left;
     transform: translate(-50%, -50%);
 
 }
 
-form > h1 {
+div#form > h1 {
     text-align: center;
     margin-top: 47px;
     color: #ffb68f;
@@ -80,7 +84,7 @@ form > h1 {
     
 }
 
-form > p {
+div#form > p {
     text-align: center;
     color: #ffb68f;
 }
@@ -94,29 +98,32 @@ input#sen {
     margin-top: 20px;
     
 }
-form > input.campo {
+div#form > input.campo {
     position: relative;
     left: 50%;
     transform: translate(-50%);
     border-radius: 15px;
-    width: 95%;
+    width: 110%;
     background-color:  #303038;
     border: 1px solid #ffb68f;
+    box-shadow: inset 2px 2px 3px black;
 }
 
-form > input.campo:hover {
-    box-shadow: 1px 1px 3px black;
+div#form > input.campo:hover {
+    box-shadow: 0px 0px 0px black;
 }
 
-form > button#btn {
+div#form > button#btn {
     position: relative;
-    background-color: #ffb68f;
+    background-color: #ffb68f00;
     border-radius: 15px;
     
-    border: .5px solid black;
+    border: .5px solid #ffb68f75;
     padding: 5px 5px;
     left: 50%;
-    width: 105%;
+    width: 120%;
+
+    box-shadow: 2px 2px 5px black;
     
     
     margin-top: 30px;
@@ -124,12 +131,12 @@ form > button#btn {
     color: whitesmoke;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     transform: translate(-50%);
-    transition: .5s;
+    transition: .01s;
     
 }
 
-form > button#btn:hover {
-    box-shadow: 2px 2px 5px black;
-    transition: .1s;
+div#form > button#btn:hover {
+    box-shadow: 0px 0px 0px black;
+    transition: .01s;
     cursor: pointer;
 }
