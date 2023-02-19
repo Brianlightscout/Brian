@@ -3,12 +3,20 @@ import base64
 from tkinter import *
 from tkinter import ttk
 import awesometkinter as atk
+import mysql.connector
 
 # ----Da inicío a janela "root"----
 root = Tk()
 
 # ----Início da classe "Application"----
 class Application():
+
+    # conexção com o banco de dados
+    banco = mysql.connector.connect(host="blsoft-db.cd18ipy4zqlo.us-east-1.rds.amazonaws.com", user="admin", password="#greenday22", database="mydb")
+
+    cursor = banco.cursor()
+    cursor2 = banco.cursor()
+
     # ----Função __init__ da classe----
     def __init__(self):
         self.root = root
@@ -18,6 +26,7 @@ class Application():
         self.tela()
         self.widgets()
         self.root.mainloop()
+
 
 
     # ----Função "tela" das propriedades da janela root----
@@ -35,7 +44,17 @@ class Application():
             def botao_cadastro():
                 def botao_criar_conta():
                     # inicio do comando do botao_criar_conta #
+                    #variaveis para o banco termina com a letra b
+                    self.nomeb = self.entry_cadastro_nome.get()
+                    self.sobrenomeb = self.entry_cadastro_sobrenome.get()
+                    self.cpfb = self.entry_cadastro_cpf.get()
+                    self.nascimentob = self.entry_nascimento.get()
+                    self.sexob = self.entry_sexo.get()
+                    self.scoreb = self.entry_score.get()
+                    self.paisb = self.entry_nacionalidade.get()
 
+                    self.cursor.execute("insert into CADASTRO values(default, '"+self.nomeb+"','"+self.sobrenomeb+"','"+self.cpfb+"','"+self.nascimentob+"','"+self.sexob+"','"+self.scoreb+"','"+self.paisb+"')")
+                    self.cursor.execute("commit")
                     print("Agora terá que desenvolver a conexão com as caixas de texto e o banco!!!!") #<----Apage isso depois!----#)
 
                     # ^^^^ fim do comando do botao_criar_conta ^^^^ #
@@ -53,7 +72,7 @@ class Application():
 
                 self.notebook.add(self.frame_cadastro)
 
-                self.root.minsize(505, 500)
+                self.root.minsize(683, 525)
 
                 self.root.title("Cadastre-se")
 
@@ -67,43 +86,81 @@ class Application():
                 self.img_cadastro = PhotoImage(data=base64.b64decode(self.img_login_base64))
 
                 self.label_img_cadastro = Label(self.frame_cadastro, image=self.img_cadastro)
-                self.label_img_cadastro.place(relx=0.5, rely=0.20, anchor=CENTER)
+                self.label_img_cadastro.place(relx=0.5, rely=0.15, anchor=CENTER)
                 self.label_img_cadastro.configure(bg=f"{self.back}")
 
                 self.titulo_cadastro = Label(self.frame_cadastro, font=("arial", 17, "bold"), text="Cadastro")
-                self.titulo_cadastro.place(relx=0.5, rely=0.40, anchor=CENTER)
+                self.titulo_cadastro.place(relx=0.5, rely=0.30, anchor=CENTER)
                 self.titulo_cadastro.configure(bg=f"{self.back}")
 
                 self.label_cadastro_nome = Label(self.frame_cadastro, font=("arial", 14, "italic"), text="Nome:", anchor=W)
-                self.label_cadastro_nome.place(relx=0.5, rely=0.50, anchor=CENTER, relwidth=0.35)
+                self.label_cadastro_nome.place(relx=0.5, rely=0.40, anchor=CENTER, relwidth=0.35)
                 self.label_cadastro_nome.configure(bg=f"white", fg="black")
 
                 self.entry_cadastro_nome = Entry(self.frame_cadastro)
-                self.entry_cadastro_nome.place(relx=0.503, rely=0.50, anchor=W, relwidth=0.169)
+                self.entry_cadastro_nome.place(relx=0.503, rely=0.40, anchor=W, relwidth=0.169)
 
-                self.label_cadastro_cpf = Label(self.frame_cadastro, font=("arial", 14, "italic"), text="cpf:", anchor=W)
-                self.label_cadastro_cpf.place(relx=0.5, rely=0.60, anchor=CENTER, relwidth=0.35)
+                self.label_cadastro_sobrenome = Label(self.frame_cadastro, font=("arial", 14, "italic"), text="Sobrenome:", anchor=W)
+                self.label_cadastro_sobrenome.place(relx=0.5, rely=0.47, anchor=CENTER, relwidth=0.35)
+                self.label_cadastro_sobrenome.configure(bg=f"white", fg="black")
+
+                self.entry_cadastro_sobrenome = Entry(self.frame_cadastro)
+                self.entry_cadastro_sobrenome.place(relx=0.503, rely=0.47, anchor=W, relwidth=0.169)
+
+                self.label_cadastro_cpf = Label(self.frame_cadastro, font=("arial", 14, "italic"), text="CPF:", anchor=W)
+                self.label_cadastro_cpf.place(relx=0.5, rely=0.54, anchor=CENTER, relwidth=0.35)
                 self.label_cadastro_cpf.configure(bg=f"white", fg="black")
 
                 self.entry_cadastro_cpf = Entry(self.frame_cadastro)
-                self.entry_cadastro_cpf.place(relx=0.503, rely=0.60, anchor=W, relwidth=0.169)
+                self.entry_cadastro_cpf.place(relx=0.503, rely=0.54, anchor=W, relwidth=0.169)
 
-                self.label_cadastro_score = Label(self.frame_cadastro, font=("arial", 14, "italic"), text="Seu score:", anchor=W)
-                self.label_cadastro_score.place(relx=0.5, rely=0.70, anchor=CENTER, relwidth=0.35)
+                self.label_cadastro_nascimento = Label(self.frame_cadastro, font=("arial", 14, "italic"), text="Nascimento:",
+                                                anchor=W)
+                self.label_cadastro_nascimento.place(relx=0.5, rely=0.61, anchor=CENTER, relwidth=0.35)
+                self.label_cadastro_nascimento.configure(bg=f"white", fg="black")
+
+                self.entry_nascimento = Entry(self.frame_cadastro)
+                self.entry_nascimento.place(relx=0.503, rely=0.61, anchor=W, relwidth=0.169)
+
+                self.label_cadastro_sexo = Label(self.frame_cadastro, font=("arial", 14, "italic"),
+                                                       text="Sexo:",
+                                                       anchor=W)
+                self.label_cadastro_sexo.place(relx=0.5, rely=0.68, anchor=CENTER, relwidth=0.35)
+                self.label_cadastro_sexo.configure(bg=f"white", fg="black")
+
+                self.entry_sexo = Entry(self.frame_cadastro)
+                self.entry_sexo.place(relx=0.503, rely=0.68, anchor=W, relwidth=0.169)
+
+                self.label_cadastro_score = Label(self.frame_cadastro, font=("arial", 14, "italic"),
+                                                 text="Score:",
+                                                 anchor=W)
+                self.label_cadastro_score.place(relx=0.5, rely=0.75, anchor=CENTER, relwidth=0.35)
                 self.label_cadastro_score.configure(bg=f"white", fg="black")
 
                 self.entry_score = Entry(self.frame_cadastro)
-                self.entry_score.place(relx=0.503, rely=0.70, anchor=W, relwidth=0.169)
+                self.entry_score.place(relx=0.503, rely=0.75, anchor=W, relwidth=0.169)
 
-                self.botao_logar = atk.Button3d(self.frame_cadastro, text="Criar conta", bg="#b8b8b8", command=botao_criar_conta)
-                self.botao_logar.place(relx=0.5, rely=0.80, anchor=CENTER, relwidth=0.35, relheight=0.07)
+                self.label_cadastro_nacionalidade = Label(self.frame_cadastro, font=("arial", 14, "italic"),
+                                                  text="Nacionalidade:",
+                                                  anchor=W)
+                self.label_cadastro_nacionalidade.place(relx=0.5, rely=0.82, anchor=CENTER, relwidth=0.35)
+                self.label_cadastro_nacionalidade.configure(bg=f"white", fg="black")
+
+                self.entry_nacionalidade = Entry(self.frame_cadastro)
+                self.entry_nacionalidade.place(relx=0.503, rely=0.82, anchor=W, relwidth=0.169)
+
+                self.botao_logar = atk.Button3d(self.frame_cadastro, text="Cadastrar", bg="#b8b8b8", command=botao_criar_conta)
+                self.botao_logar.place(relx=0.5, rely=0.90, anchor=CENTER, relwidth=0.35, relheight=0.07)
 
                 # comando botao_criar_conta ----> linha 36 <----#
 
                 #^^^^ comando do botao_cadastro acima ^^^^
 
-            def botao_logar():
+            def consultar():
                 # inicio do comando do botao_logar #
+                self.cursor2.execute(f"select CADASTRO.nome,CADASTRO.sobrenome,CADASTRO.score,CARROS.modelo,CARROS.ano_veiculo from CADASTRO join compra on CADASTRO.id = compra.idcliente join CARROS  on CARROS.idcarros = compra.idveiculo where cpf = '{self.entry_login_cpf.get()}'")
+                dados = (self.cursor2.fetchall())
+                print(dados)
 
                 print("Agora terá que desenvolver a conexão com as caixas de texto e o banco!!!!") #<----Apage isso depois!----#
 
@@ -130,7 +187,7 @@ class Application():
             self.label_img_login.place(relx=0.5, rely=0.20, anchor=CENTER)
             self.label_img_login.configure(bg=f"{self.back}")
 
-            self.titulo_login = Label(self.frame_login, font=("arial", 17, "bold"), text="lOGIN")
+            self.titulo_login = Label(self.frame_login, font=("arial", 17, "bold"), text="FAZER CONSULTAR")
             self.titulo_login.place(relx=0.5, rely=0.40, anchor=CENTER)
             self.titulo_login.configure(bg=f"{self.back}")
 
@@ -142,17 +199,17 @@ class Application():
             self.entry_login_cpf.place(relx=0.503, rely=0.50, anchor=W, relwidth=0.169)
 
             #-------criaçao do botao_logar-------#
-            self.botao_logar = atk.Button3d(self.frame_login, text="Entrar", bg="#b8b8b8", command=botao_logar)
+            self.botao_logar = atk.Button3d(self.frame_login, text="Consutar", bg="#b8b8b8", command=consultar)
             self.botao_logar.place(relx=0.5, rely=0.60, anchor=CENTER, relwidth=0.35, relheight=0.07)
             #------- comando botao_logar ----> linha 87 <----#
 
-            self.label_ou = Label(self.frame_login, text="Ainda não tem conta?")
+            self.label_ou = Label(self.frame_login, text="Ou")
             self.label_ou.place(relx=0.5, rely=0.67, anchor=CENTER)
             self.label_ou.configure(bg=f"{self.back}")
 
             #-------criaçao botao_cadastro-------#
 
-            self.botao_cadastro = atk.Button3d(self.frame_login, text="Cadastre-se", bg="#b8b8b8", command=botao_cadastro)
+            self.botao_cadastro = atk.Button3d(self.frame_login, text="Cadastrar", bg="#b8b8b8", command=botao_cadastro)
             self.botao_cadastro.place(relx=0.5, rely=0.73, anchor=CENTER, relwidth=0.35, relheight=0.07)
 
             #-------comando botao_cadastro----> linha 35 -------#
