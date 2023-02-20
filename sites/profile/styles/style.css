@@ -41,8 +41,7 @@ form {
 
 #form_3 {
     position: absolute;
-    left: 50%;
-    box-sizing: border-box;
+    left: 45%;
     transform: translate(-50%);
 }
 
@@ -56,17 +55,17 @@ h2 {
     border-radius: 3px;
 }
 
-img.img {
-    width: 33%;
-    height: 33%;
+img {
+    width: 40px;
+    height: 40px;
     color: aqua;
     cursor: pointer;
     box-sizing: border-box;
 }
 
 img:hover {
-    width: 37%;
-    height: 37%;
+    width: 43px;
+    height: 43px;
     transition: .3s;
 
 }
