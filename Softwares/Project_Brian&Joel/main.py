@@ -158,9 +158,40 @@ class Application():
 
             def consultar():
                 # inicio do comando do botao_logar #
-                self.cursor2.execute(f"select CADASTRO.nome,CADASTRO.sobrenome,CADASTRO.score,CARROS.modelo,CARROS.ano_veiculo from CADASTRO join compra on CADASTRO.id = compra.idcliente join CARROS  on CARROS.idcarros = compra.idveiculo where cpf = '{self.entry_login_cpf.get()}'")
-                dados = (self.cursor2.fetchall())
-                print(dados)
+                self.cursor2.execute(f"select CADASTRO.nome,CADASTRO.sobrenome,CADASTRO.score,compra.data, compra.valor,CARROS.fabricante,CARROS.modelo,CARROS.ano_veiculo from CADASTRO join compra on CADASTRO.id = compra.idcliente join CARROS on CARROS.idcarros = compra.idveiculo where cpf = '{self.entry_login_cpf.get()}'")
+                self.dados = (self.cursor2.fetchall())
+                self.mostrar_dados = Tk()
+                self.mostrar_dados.title("DADOS DO CLIENTE")
+                self.mostrar_dados.geometry("500x250")
+                self.mostrar_dados.maxsize(1600, 250 )
+
+                self.mostrar_dados.minsize(750, 250)
+
+                self.tv = ttk.Treeview(self.mostrar_dados, columns=('Nome', 'Sobrenome', 'Score', 'Data', 'Valor', 'Fabricante', 'Modelo', 'Ano'), show='headings')
+                self.tv.column('Nome', minwidth=25, width=75)
+                self.tv.column('Sobrenome', minwidth=25, width=75)
+                self.tv.column('Score', minwidth=25, width=75)
+                self.tv.column('Data', minwidth=25, width=75)
+                self.tv.column('Valor', minwidth=25, width=75)
+                self.tv.column('Fabricante', minwidth=25, width=75)
+                self.tv.column('Modelo', minwidth=25, width=75)
+                self.tv.column('Ano', minwidth=25, width=75)
+
+                self.tv.heading('Nome', text='Nome')
+                self.tv.heading('Sobrenome', text='Sobrenome')
+                self.tv.heading('Score', text='Score')
+                self.tv.heading('Data', text='Data')
+                self.tv.heading('Valor', text='Valor')
+                self.tv.heading('Fabricante', text='Fabricante')
+                self.tv.heading('Modelo', text='Modelo')
+                self.tv.heading('Ano', text='Ano')
+                self.tv.place(relx=0, rely=0, relwidth=1, relheight=1)
+
+                for i in self.dados:
+                    self.tv.insert("", "end", values=i)
+                self.mostrar_dados.mainloop()
+
+
 
                 print("Agora terá que desenvolver a conexão com as caixas de texto e o banco!!!!") #<----Apage isso depois!----#
 
