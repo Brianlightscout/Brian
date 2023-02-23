@@ -37,11 +37,30 @@ section > div > h1 {
 form {
     display: flex;
     margin: 17px;
+    
+}
+
+form#primeira {
+    position: absolute;
+    top: 15%;
+}
+
+form#form_2 {
+    position: absolute;
+    top: 35%;
+}
+
+hr {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
 }
 
 #form_3 {
     position: absolute;
     left: 47%;
+    top: 65%;
     transform: translate(-50%);
 }
 
