@@ -20,9 +20,9 @@ div#div_img {
     position: absolute;
     
     background-color: transparent;
-    width: 115px;
-    height: 115px;
-    top: 13%;
+    width: 125px;
+    height: 20%;
+    top: 15%;
     left: 50%;
     border-radius: 50%;
     transform: translate(-50%, -50%);
@@ -44,9 +44,9 @@ img#foto {
 h1#nome {
     position: absolute;
     left: 50%;
-    top: 27%;
+    top: 30%;
     font-family: 'Courier New', Courier, monospace, sans-serif;
-    font-size: 13pt;
+    font-size: 16pt;
     color: #f0f8ff85;
     transform: translate(-50%, -50%);
 }
