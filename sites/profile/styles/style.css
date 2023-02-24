@@ -46,7 +46,7 @@ h1#nome {
     left: 50%;
     top: 27%;
     font-family: 'Courier New', Courier, monospace, sans-serif;
-    font-size: 16pt;
+    font-size: 13pt;
     color: #f0f8ff85;
     transform: translate(-50%, -50%);
 }
