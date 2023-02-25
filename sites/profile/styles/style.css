@@ -44,7 +44,7 @@ img#foto {
 h1#nome {
     position: absolute;
     left: 50%;
-    top: 27%;
+    top: 29%;
     font-family: 'Courier New', Courier, monospace, sans-serif;
     font-size: 13pt;
     color: #f0f8ff85;
@@ -114,23 +114,33 @@ h2 {
 #sec_3 {
     position: absolute;
     top: 75%;
-    left: 57%;
+    left: 50%;
+    width: 30%;
+    height: 15%;
     transform: translate(-50%, -50%);
     
+    border-radius: 5px;
     
 }
 
-section#sec_3 img {
-    width: 20%;
-    height: 20%;
-    margin: 5%;
+#div_imgs {
+    
+    text-align-last: center;
+}
+
+section#sec_3 > div#div_imgs img {
+    width: 40%;
+    height: 35px;
+    margin-top: 3px;
+    
     box-sizing: border-box;
     border-radius: 25%;
+    border: 2px solid rgba(240, 248, 255, 0.466);
     
 }
 
-section#sec_3 img:hover {
-    border: 2px solid gray;
+section#sec_3 div#div_imgs img:hover {
+    border: 2px solid aliceblue;
 }
 
 

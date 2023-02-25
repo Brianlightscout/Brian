@@ -1,7 +1,45 @@
-@media screen and (min-width:768px) {
-    section#principal {
-        width: 40%;
-        height: 90%;
+@media screen and (min-width:768px) and (max-width: 992px) {
+    
+    #sec_3 {
+        position: absolute;
+        top: 77%;
+        left: 50%;
+        width: 75%;
+        height: 15%;
+        transform: translate(-50%, -50%);
+        
+        
+        
+    }
+
+    
+    
+    section#sec_3 div#div_imgs img {
+        width: 14%;
+        height: 40px;
+        
+        
+    }
+    
+}
+
+@media screen and (min-width:992px) {
+    
+    #sec_3 {
+        position: absolute;
+        top: 77%;
+        left: 50%;
+        width: 75%;
+        height: 15%;
+        transform: translate(-50%, -50%);
+        
+        
+    }
+    section#sec_3 div#div_imgs img {
+        width: 9%;
+        height: 40px;
+        
+        
     }
     
 }
