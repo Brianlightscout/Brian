@@ -1,0 +1,1 @@
+window.alert("Olá, me chamo Brian e sou apaixonado por tecnologia....")
