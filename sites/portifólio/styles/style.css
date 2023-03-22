@@ -34,14 +34,45 @@ body > header > div#rodapé > h1#titulo {
     transform: translate(-50%);
 }
 
-body > header > div#rodapé > span {
+body > header > div#rodapé > i {
     position: absolute;
     margin-top: 25px;
     font-size: 200%;
     left: 95vw;
 }
 
-body > header > div#rodapé > span:hover {
+body > header > div#rodapé > i:hover {
     text-shadow: 1px 1px 2px black;
     cursor: pointer;
+}
+
+body > header > div#rodapé > menu#itens {
+    position: absolute;
+    top: 0%;
+    left: 0vw;
+    width: 20%;
+    height: 100%;
+    background-color: aliceblue;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px black;
+    display: none;
+}
+
+body > header > div#rodapé > menu#itens > a.links {
+    position: relative;
+    display: block;
+    top: 20px;
+    left: 10px;
+    background-color: aliceblue;
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    margin-left: 10px;
+    height: 5%;
+    width: 75%;
+    
+    
+    
 }

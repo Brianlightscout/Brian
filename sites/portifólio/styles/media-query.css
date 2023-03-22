@@ -1,5 +1,5 @@
 @media screen and (max-width: 768px) {
-    body > header > div#rodapé > span {
+    body > header > div#rodapé > i {
         position: absolute;
         left: 87vw;
     }
