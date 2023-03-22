@@ -1,0 +1,47 @@
+body {
+    
+}
+
+body > header > div#rodapé {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-color: aliceblue;
+    box-shadow: 1px 1px 10px black;
+}
+
+body > header > div#rodapé > h1.titu {
+    color: cornflowerblue;
+    font-size: 175%;
+}
+
+body > header > div#rodapé > h1#nome {
+    position: absolute;
+    text-align: left;
+    margin: 20px;
+    /*font-family: 'Courier New', Courier, monospace;*/
+}
+
+body > header > div#rodapé > h1#titulo {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: translate(-50%);
+}
+
+body > header > div#rodapé > span {
+    position: absolute;
+    margin-top: 25px;
+    font-size: 200%;
+    left: 95vw;
+}
+
+body > header > div#rodapé > span:hover {
+    text-shadow: 1px 1px 2px black;
+    cursor: pointer;
+}
