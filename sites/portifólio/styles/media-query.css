@@ -90,7 +90,7 @@
     body > header > div#rodapé > section#menu {
         position: absolute;
         top: 6%;
-        left: 35%;
+        left: 30%;
         width: 50%;
         transition: .5s;
     }
