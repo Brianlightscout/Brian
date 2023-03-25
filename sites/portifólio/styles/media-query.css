@@ -89,8 +89,8 @@
 @media screen and (max-width: 668px) {
     body > header > div#rodapé > section#menu {
         position: absolute;
-        top: 7%;
-        left: 40%;
+        top: 6%;
+        left: 35%;
         width: 50%;
         transition: .5s;
     }
