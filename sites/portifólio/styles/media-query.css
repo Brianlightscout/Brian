@@ -59,8 +59,8 @@
 
     body > header > div#rodapé > section#menu {
         position: absolute;
-        top: 12%;
-        left: 55%;
+        top: 10%;
+        left: 50%;
         width: 65%;
         
         background-color: transparent;
@@ -86,11 +86,24 @@
 @media screen and (max-width: 768px) {
     body > header > div#rodapé > section#menu {
         position: absolute;
-        top: 8%;
-        left: 55%;
-        width: 45%;
-        background-color: transparent;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        box-shadow: 1px 1px 10px black;
+        background-color: white;
         transition: .5s;
+        display: none;
+        
+    }
+
+    body > header > div#rodapé > span {
+        position: absolute;
+        left: 90%;
+        margin-left: -2%;
+        margin-top: 6%;
+        font-size: 200%;
+        color: rgb(75, 75, 75);
         display: block;
     }
     
