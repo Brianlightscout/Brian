@@ -86,15 +86,27 @@
 @media screen and (max-width: 768px) {
     body > header > div#rodapé > section#menu {
         position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 20%;
-        height: 100%;
+        top: 2%;
+        left: 2%;
+        width: 17%;
+        height: 15%;
+        padding: 12px 12px;
         box-shadow: 1px 1px 10px black;
+        border-radius: 7px;
         background-color: white;
         transition: .5s;
         display: none;
         
+    }
+
+    body > header > div#rodapé > section#menu  a.a {
+
+        font-size: 130%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(75, 75, 75);
+        margin-left: 1%;
+        text-decoration: none;
+    
     }
 
     body > header > div#rodapé > span {
@@ -114,11 +126,13 @@
 @media screen and (max-width: 668px) {
     body > header > div#rodapé > section#menu {
         position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 25%;
-        height: 100%;
+        top: 2%;
+        left: 2%;
+        width: 20%;
+        height: 15%;
+        line-height: 150%;
         box-shadow: 1px 1px 10px black;
+        border-radius: 7px;
         background-color: white;
         transition: .5s;
         
