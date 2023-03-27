@@ -101,10 +101,11 @@
 
     body > header > div#rodapé > section#menu  a.a {
 
-        font-size: 130%;
+        font-size: 150%;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgb(75, 75, 75);
         margin-left: 1%;
+        
         text-decoration: none;
     
     }
@@ -141,7 +142,7 @@
 
     body > header > div#rodapé > section#menu  a.a {
 
-        font-size: 130%;
+        font-size: 150%;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgb(75, 75, 75);
         margin-left: 1%;
