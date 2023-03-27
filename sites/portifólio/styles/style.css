@@ -28,6 +28,7 @@ body > header > div#rodapé > span {
     margin-top: 3.5%;
     font-size: 200%;
     color: rgb(75, 75, 75);
+    display: none;
 }
 
 body > header > div#rodapé > span:hover {
@@ -63,11 +64,13 @@ body > header > div#rodapé > img#img_foto {
 
 body > header > div#rodapé > section#menu {
     position: absolute;
-    top: 55px;
+    top: 8%;
     left: 65%;
-    width: 25%;
+    width: 35%;
+    
+    background-color: transparent;
     transition: .5s;
-    display: none;
+    display: block;
 }
 
 body > header > div#rodapé > section#menu  a.a {
@@ -75,6 +78,7 @@ body > header > div#rodapé > section#menu  a.a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(75, 75, 75);
     margin-left: 7%;
+    margin: 10%;
     text-decoration: none;
 
 }
