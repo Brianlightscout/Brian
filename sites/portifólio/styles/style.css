@@ -73,6 +73,19 @@ body > header > div#rodapé > section#menu {
     
 }
 
+body > header > div#rodapé > section#menu_menor {
+    position: absolute;
+    top: 8%;
+    left: 65%;
+    width: 35%;
+    
+    background-color: transparent;
+    transition: .5s;
+    display: none;
+    
+}
+
+
 body > header > div#rodapé > section#menu  a.a {
     font-size: 120%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
