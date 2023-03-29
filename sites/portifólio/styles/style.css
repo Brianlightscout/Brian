@@ -1,5 +1,5 @@
 body {
-    
+    background-color: black;
 }
 
 body > header > div#rodapé {
@@ -9,7 +9,7 @@ body > header > div#rodapé {
     top: 0%;
     left: 0%;
     background-color: white;
-    box-shadow: 1px 1px 10px black;
+    box-shadow: 1px 1px 3px black;
 }
 
 body > header > div#rodapé > h1.titu {
@@ -110,7 +110,8 @@ body > main > div#main{
     left: 0%;
     width: 99.5vw;
     height: 500px;
-    background-color: aliceblue;
+    background-color: rgb(240, 248, 255);
+    box-shadow: 1px 1px 3px black;
 }
 
 body > main > div#main img#img_code {
@@ -122,6 +123,61 @@ body > main > div#main img#img_code {
     border-radius: 15px;
     box-shadow: -8px 8px 1px rgb(148, 154, 158);
 }
+
+body > main > div#main p {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 30%;
+    font-size: 120%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(75, 75, 75);
+    text-align: justify;
+    
+}
+
+body > footer div#footer {
+    position: absolute;
+    top: 175vh;
+    left: 0%;
+    width: 99.5vw;
+    height: 15%;
+    background-color: white;
+    box-shadow: 1px 1px 3px black;
+}
+
+body > footer div#footer div#links {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    
+    transform: translate(-50%, -50%);
+    
+}
+
+body > footer div#footer div#links div#imgs {
+    position: absolute;
+    top: 50%;
+    left: 52%;
+    width: 104px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    
+    
+}
+
+body > footer div#footer div#links img {
+    
+    width: 50px;
+    height: 50px;
+    
+    
+    
+}
+
+
 
 /* CSS referente a pagina portifólio*/
 

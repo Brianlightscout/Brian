@@ -15,7 +15,7 @@
         position: absolute;
         top: 8%;
         left: 55%;
-        width: 50%;
+        width: 45%;
         background-color: transparent;
         transition: .5s;
         display: block;
@@ -71,9 +71,9 @@
 
     body > header > div#rodapé > img#img_foto {
         position: absolute;
-        top: 40%;
+        top: 43%;
         left: 10%;
-        height: 383px;
+        height: 380px;
     
     }
 
@@ -136,8 +136,8 @@
     body > header > div#rodapé > section#menu_menor {
         position: absolute;
         top: 14%;
-        left: 70%;
-        width: 20%;
+        left: 75%;
+        width: 15%;
         height: 15%;
         padding: 12px 12px;
         box-shadow: 1px 1px 10px black;
@@ -155,6 +155,17 @@
         color: rgb(75, 75, 75);
         margin-left: 1%;
         
+        text-decoration: none;
+    
+    }
+
+    body > header > div#rodapé > section#menu_menor  a.am:hover {
+
+        font-size: 150%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(75, 75, 75);
+        margin-left: 1%;
+        text-shadow: 1px 1px 1px black;
         text-decoration: none;
     
     }
@@ -192,8 +203,8 @@
     body > header > div#rodapé > section#menu_menor {
         position: absolute;
         top: 12%;
-        left: 65%;
-        width: 25%;
+        left: 70%;
+        width: 20%;
         height: 15%;
         line-height: 150%;
         box-shadow: 1px 1px 10px black;
@@ -207,10 +218,21 @@
 
     body > header > div#rodapé > section#menu_menor  a.am {
 
-        font-size: 150%;
+        font-size: 140%;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgb(75, 75, 75);
         margin-left: 1%;
+        text-decoration: none;
+    
+    }
+
+    body > header > div#rodapé > section#menu_menor  a.am:hover {
+
+        font-size: 140%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(75, 75, 75);
+        margin-left: 1%;
+        text-shadow: 1px 1px 1px black;
         text-decoration: none;
     
     }
@@ -225,6 +247,16 @@
         font-size: 200%;
         color: rgb(75, 75, 75);
         display: block;
+    }
+
+    body > main > div#main img#img_code {
+        position: absolute;
+        top: 20%;
+        left: 55%;
+        width: 35%;
+        height: 35%;
+        border-radius: 15px;
+        box-shadow: -8px 8px 1px rgb(148, 154, 158);
     }
     
 }
