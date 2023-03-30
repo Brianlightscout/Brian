@@ -15,9 +15,10 @@ body > header > div#rodapé {
 body > header > div#rodapé > h1.titu {
     color: rgb(75, 75, 75);
     font-size: 180%;
+    width: 75px;
     margin-left: 5%;
     margin-top: 3%;
-    
+    background-color: transparent;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
