@@ -259,8 +259,8 @@
     body > header > div#rodapé > section#menu_menor {
         position: absolute;
         top: 14%;
-        left: 75%;
-        width: 15%;
+        left: 70%;
+        width: 20%;
         height: 15%;
         padding: 12px 12px;
         box-shadow: 1px 1px 10px black;
@@ -273,10 +273,10 @@
 
     body > header > div#rodapé > section#menu_menor  a.am {
 
-        font-size: 150%;
+        font-size: 140%;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgb(75, 75, 75);
-        margin-left: 1%;
+        margin-left: 0.5%;
         
         text-decoration: none;
     
@@ -284,7 +284,7 @@
 
     body > header > div#rodapé > section#menu_menor  a.am:hover {
 
-        font-size: 150%;
+        font-size: 140%;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgb(75, 75, 75);
         margin-left: 1%;
@@ -367,8 +367,8 @@
     body > header > div#rodapé > section#menu_menor {
         position: absolute;
         top: 12%;
-        left: 70%;
-        width: 20%;
+        left: 65%;
+        width: 25%;
         height: 15%;
         line-height: 150%;
         box-shadow: 1px 1px 10px black;
@@ -385,7 +385,7 @@
         font-size: 140%;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgb(75, 75, 75);
-        margin-left: 1%;
+        margin-left: 0.5%;
         text-decoration: none;
     
     }
