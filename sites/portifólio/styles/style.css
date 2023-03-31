@@ -9,7 +9,7 @@ body > header > div#rodapé {
     top: 0%;
     left: 0%;
     background-color: white;
-    box-shadow: 1px 1px 3px black;
+    
 }
 
 body > header > div#rodapé > h1.titu {
@@ -181,6 +181,9 @@ body > footer div#footer div#links img {
 
 
 /* CSS referente a pagina portifólio*/
+
+
+
 
 
 
