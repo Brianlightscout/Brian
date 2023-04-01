@@ -183,7 +183,72 @@ body > footer div#footer div#links img {
 /* CSS referente a pagina portifólio*/
 
 
+body > footer img#perfil {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    width: 100px;
+    height: 100px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 10px black;
+    
+    transform: translate(-50%, -50%);
+}
 
+body > footer img#tlogin {
+    position: absolute;
+    top: 35%;
+    left: 75%;
+    width: 100px;
+    height: 100px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 10px black;
+    transform: translate(-50%, -50%);
+}
+
+body > footer img#finan {
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    width: 100px;
+    height: 100px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 10px black;
+    transform: translate(-50%, -50%);
+}
+
+body > footer h1#leg-perfil {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    font-size: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(75, 75, 75);
+    transform: translate(-50%, -50%);
+
+}
+
+body > footer h1#leg-login {
+    position: absolute;
+    top: 45%;
+    left: 75%;
+    font-size: 100%;
+    color: rgb(75, 75, 75);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transform: translate(-50%, -50%);
+
+}
+
+body > footer h1#leg-finan {
+    position: absolute;
+    top: 90%;
+    left: 25%;
+    font-size: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(75, 75, 75);
+    transform: translate(-50%, -50%);
+
+}
 
 
 
