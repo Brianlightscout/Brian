@@ -189,7 +189,7 @@ body > footer img#perfil {
     left: 25%;
     width: 100px;
     height: 100px;
-    border-radius: 7px;
+    border-radius: 0px;
     box-shadow: 1px 1px 5px black;
     cursor: pointer;
     transform: translate(-50%, -50%);
@@ -201,7 +201,7 @@ body > footer img#tlogin {
     left: 75%;
     width: 100px;
     height: 100px;
-    border-radius: 7px;
+    border-radius: 0px;
     cursor: pointer;
     box-shadow: 1px 1px 5px black;
     transform: translate(-50%, -50%);
@@ -213,7 +213,7 @@ body > footer img#finan {
     left: 25%;
     width: 100px;
     height: 100px;
-    border-radius: 7px;
+    border-radius: 0px;
     cursor: pointer;
     box-shadow: 1px 1px 5px black;
     
