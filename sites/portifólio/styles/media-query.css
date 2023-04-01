@@ -98,6 +98,28 @@
         transform: translate(-50%, -50%);
     
     }
+
+    body > footer h1#leg-perfil {
+        position: absolute;
+        top: 45%;
+        left: 25%;
+        font-size: 100%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(75, 75, 75);
+        transform: translate(-50%, -50%);
+    
+    }
+    
+    body > footer h1#leg-login {
+        position: absolute;
+        top: 45%;
+        left: 75%;
+        font-size: 100%;
+        color: rgb(75, 75, 75);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        transform: translate(-50%, -50%);
+    
+    }
     
 }
 
@@ -199,6 +221,28 @@
         left: 50%;
         font-size: 100%;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transform: translate(-50%, -50%);
+    
+    }
+
+    body > footer h1#leg-perfil {
+        position: absolute;
+        top: 45%;
+        left: 25%;
+        font-size: 100%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(75, 75, 75);
+        transform: translate(-50%, -50%);
+    
+    }
+    
+    body > footer h1#leg-login {
+        position: absolute;
+        top: 45%;
+        left: 75%;
+        font-size: 100%;
+        color: rgb(75, 75, 75);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         transform: translate(-50%, -50%);
     
     }
@@ -365,6 +409,28 @@
     
     }
 
+    body > footer h1#leg-perfil {
+        position: absolute;
+        top: 45%;
+        left: 25%;
+        font-size: 100%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(75, 75, 75);
+        transform: translate(-50%, -50%);
+    
+    }
+    
+    body > footer h1#leg-login {
+        position: absolute;
+        top: 45%;
+        left: 75%;
+        font-size: 100%;
+        color: rgb(75, 75, 75);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        transform: translate(-50%, -50%);
+    
+    }
+
     
 
     
@@ -479,7 +545,7 @@
 
     body > footer img#perfil {
         position: absolute;
-        top: 35%;
+        top: 45%;
         left: 25%;
         width: 100px;
         height: 100px;
@@ -490,7 +556,7 @@
     
     body > footer img#tlogin {
         position: absolute;
-        top: 35%;
+        top: 45%;
         left: 75%;
         width: 100px;
         height: 100px;
@@ -500,7 +566,7 @@
     
     body > footer img#finan {
         position: absolute;
-        top: 75%;
+        top: 85%;
         left: 25%;
         width: 100px;
         height: 100px;
@@ -510,10 +576,32 @@
 
     body > footer h1#leg-finan {
         position: absolute;
-        top: 90%;
+        top: 105%;
         left: 25%;
         font-size: 100%;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transform: translate(-50%, -50%);
+    
+    }
+
+    body > footer h1#leg-perfil {
+        position: absolute;
+        top: 58%;
+        left: 25%;
+        font-size: 100%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgb(75, 75, 75);
+        transform: translate(-50%, -50%);
+    
+    }
+    
+    body > footer h1#leg-login {
+        position: absolute;
+        top: 58%;
+        left: 75%;
+        font-size: 100%;
+        color: rgb(75, 75, 75);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         transform: translate(-50%, -50%);
     
     }
@@ -633,8 +721,8 @@
     
     body > footer div#footerp div#linksp img {
         
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         
         
         
@@ -642,7 +730,7 @@
 
     body > footer img#perfil {
         position: absolute;
-        top: 35%;
+        top: 45%;
         left: 25%;
         width: 100px;
         height: 100px;
@@ -652,7 +740,7 @@
     
     body > footer img#tlogin {
         position: absolute;
-        top: 35%;
+        top: 45%;
         left: 75%;
         width: 100px;
         height: 100px;
@@ -662,7 +750,7 @@
     
     body > footer img#finan {
         position: absolute;
-        top: 75%;
+        top: 85%;
         left: 25%;
         width: 100px;
         height: 100px;
@@ -672,7 +760,7 @@
 
     body > footer h1#leg-perfil {
         position: absolute;
-        top: 45%;
+        top: 55%;
         left: 25%;
         font-size: 100%;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -682,7 +770,7 @@
     
     body > footer h1#leg-login {
         position: absolute;
-        top: 45%;
+        top: 55%;
         left: 75%;
         font-size: 100%;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -692,7 +780,7 @@
     
     body > footer h1#leg-finan {
         position: absolute;
-        top: 90%;
+        top: 105%;
         left: 27%;
         font-size: 100%;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -219,7 +219,7 @@ body > footer img#finan {
 
 body > footer h1#leg-perfil {
     position: absolute;
-    top: 45%;
+    top: 55%;
     left: 25%;
     font-size: 100%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -230,7 +230,7 @@ body > footer h1#leg-perfil {
 
 body > footer h1#leg-login {
     position: absolute;
-    top: 45%;
+    top: 55%;
     left: 75%;
     font-size: 100%;
     color: rgb(75, 75, 75);
