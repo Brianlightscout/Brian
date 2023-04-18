@@ -66,8 +66,8 @@ body > header > div#rodapé > img#img_foto {
 body > header > div#rodapé > section#menu {
     position: absolute;
     top: 8%;
-    left: 65%;
-    width: 35%;
+    left: 60%;
+    width: 40%;
     
     background-color: transparent;
     transition: .5s;

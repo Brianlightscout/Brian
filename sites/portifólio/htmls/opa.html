@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    fetch('https://economia.awesomeapi.com.br/json/USD-BRL/1')
+    .then(response => response.json())
+    .then(data => window.alert(data[0].bid));
+  </script>
+</body>
+</html>
