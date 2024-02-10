@@ -18,8 +18,9 @@ body > header > div#rodapé > h1.titu {
     width: 190px;
     margin-left: 5%;
     margin-top: 3%;
+    
     background-color: transparent;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Courier New';
 }
 
 body > header > div#rodapé > span {
