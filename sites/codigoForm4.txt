@@ -1,0 +1,891 @@
+using System;
+using System.IO;
+using System.Windows.Forms;
+
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using Xnotes;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WinFormsApp1;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using EnvDTE;
+using System.Threading;
+using System.Collections;
+using System.Drawing.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using Microsoft.VisualStudio.Shell.Interop;
+using System.Runtime.ConstrainedExecution;
+
+
+
+
+
+namespace Xnotes
+{
+    public partial class Form4 : Form
+    {
+        public static string nomeCaderno;
+        public static string nomeNota;
+        public static string modoCor;
+        private bool isInitialized = false;
+        //private Dictionary<String, List<Tuple<int, int>>> underlineInfo = new Dictionary<string, List<Tuple<int, int>>>();
+        public TextInfo textInfo { get; set; }
+
+
+        private Dictionary<string, object> underlineInfo = new Dictionary<string, object>();
+        public Form4()
+        {
+            InitializeComponent();
+
+            modoCor = Form3.nomeAparencia;
+
+            if (modoCor == "light")
+            {
+                this.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                panel4.BackColor = Color.Azure;
+                label1.BackColor = Color.Azure;
+                label2.BackColor = Color.Azure;
+                label3.BackColor = Color.Azure;
+                label4.BackColor = Color.Azure;
+                label5.BackColor = Color.Azure;
+
+                label1.ForeColor = ColorTranslator.FromHtml("#063940");
+                label2.ForeColor = ColorTranslator.FromHtml("#063940");
+                label3.ForeColor = ColorTranslator.FromHtml("#063940");
+                label4.ForeColor = ColorTranslator.FromHtml("#063940");
+                label5.ForeColor = ColorTranslator.FromHtml("#063940");
+
+                panel8.BackColor = ColorTranslator.FromHtml("#CFCFCF");
+                panel1.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                panel2.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+
+                label6.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label7.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label8.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label9.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+
+                label6.ForeColor = ColorTranslator.FromHtml("#063940");
+                label7.ForeColor = ColorTranslator.FromHtml("#063940");
+                label8.ForeColor = ColorTranslator.FromHtml("#063940");
+                label9.ForeColor = ColorTranslator.FromHtml("#063940");
+
+                string pathMarcText = AppDomain.CurrentDomain.BaseDirectory + @"\marctext.png";
+                label9.Image = System.Drawing.Image.FromFile(pathMarcText);
+                label10.BackColor = ColorTranslator.FromHtml("#CFCFCF");
+                label10.ForeColor = ColorTranslator.FromHtml("#063940");
+                label11.BackColor = ColorTranslator.FromHtml("#CFCFCF");
+                label11.ForeColor = ColorTranslator.FromHtml("#063940");
+                label12.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label13.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label14.BackColor = ColorTranslator.FromHtml("#CFCFCF");
+                label14.ForeColor = ColorTranslator.FromHtml("#063940");
+                label15.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label16.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label16.ForeColor = ColorTranslator.FromHtml("#063940");
+                label17.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label17.ForeColor = ColorTranslator.FromHtml("#063940");
+                label18.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label20.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label18.ForeColor = ColorTranslator.FromHtml("#063940");
+                label19.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                label19.ForeColor = ColorTranslator.FromHtml("#063940");
+
+
+                textBox1.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+                textBox1.ForeColor = Color.Black;
+                richTextBox1.BackColor = ColorTranslator.FromHtml("#C9C9C9");
+
+
+                richTextBox1.ForeColor = Color.Black;
+
+                Bitmap image = new Bitmap("qfwrearmtey.png");
+
+                // Defina a imagem de fundo do painel para o objeto Bitmap
+                panel3.BackgroundImage = image;
+
+                string pathHome = AppDomain.CurrentDomain.BaseDirectory + @"\home.png";
+                label12.Image = System.Drawing.Image.FromFile(pathHome);
+                label12.BackColor = ColorTranslator.FromHtml("#CFCFCF");
+
+                string pathLixo = AppDomain.CurrentDomain.BaseDirectory + @"\Lixo.png";
+                label13.Image = System.Drawing.Image.FromFile(pathLixo);
+                label13.BackColor = ColorTranslator.FromHtml("#CFCFCF");
+
+
+
+                // Defina o modo de layout da imagem de fundo para que a imagem preencha todo o painel
+
+
+            }
+            else
+            {
+                richTextBox1.ForeColor = Color.White;
+            }
+
+
+
+            nomeCaderno = Form1.itemSelecionado;
+            nomeNota = Form1.noteSelecionada;
+
+            textBox1.Text = $"{nomeNota}";
+            label2.Text = $"{nomeCaderno}";
+            panel1.Visible = false;
+            label3.Font = new Font(FontFamily.GenericSerif, 14, FontStyle.Regular);
+            label4.Font = new Font(FontFamily.GenericSerif, 14, FontStyle.Regular);
+            label5.Font = new Font(FontFamily.GenericSerif, 14, FontStyle.Regular);
+
+
+
+
+
+
+            richTextBox1.TextChanged += new EventHandler(richTextBox1_TextChanged);
+
+
+            string loadedText = loadText();
+
+            if (!string.IsNullOrEmpty(loadedText))
+            {
+                richTextBox1.Rtf = loadedText;
+            }
+
+            //updateHighlightedText();
+
+            isInitialized = true;
+
+            textInfo = new TextInfo();
+
+            InstalledFontCollection installedFonts = new InstalledFontCollection();
+
+            foreach (FontFamily font in installedFonts.Families)
+            {
+                comboBox1.Items.Add(font.Name);
+            }
+
+
+
+
+
+
+        }
+
+        // Adiciona uma variável para rastrear se houve alterações no texto
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (isInitialized)
+            {
+                saveText();
+            } // Marca que houve alterações no texto
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+            panel1.Visible = false;
+            label3.Font = new Font(FontFamily.GenericSerif, 14, FontStyle.Regular);
+            label5.Font = new Font(FontFamily.GenericSerif, 14, FontStyle.Bold);
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_MouseEnter(object sender, EventArgs e)
+        {
+            if (modoCor != "light")
+            {
+                label6.BackColor = Color.FromArgb(30, 30, 30);
+            }
+        }
+
+        private void label6_MouseLeave(object sender, EventArgs e)
+        {
+            if (modoCor != "light")
+            {
+                label6.BackColor = Color.FromArgb(24, 24, 24);
+            }
+        }
+
+        private void underlineText()
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                int start = richTextBox1.SelectionStart;
+                int length = richTextBox1.SelectionLength;
+
+                // Obtém a fonte atual
+                Font currentFont = richTextBox1.SelectionFont;
+
+                // Se a fonte atual for nula, use a fonte padrão
+                if (currentFont == null)
+                {
+                    currentFont = richTextBox1.Font;
+                }
+
+                // Cria uma nova fonte com o mesmo estilo, mas com sublinhado adicionado
+                Font newFont = new Font(currentFont.FontFamily, currentFont.Size, currentFont.Style | FontStyle.Underline);
+
+                // Define a nova fonte
+                richTextBox1.SelectionFont = newFont;
+
+                if (textInfo.Underline == null)
+                {
+                    textInfo.Underline = new List<Tuple<int, int>>();
+                }
+                textInfo.Underline.Add(new Tuple<int, int>(start, start + length));
+
+                // Inicializa a lista FontSizes, se necessário
+                if (textInfo.FontSizes == null)
+                {
+                    textInfo.FontSizes = new List<Tuple<int, int, int>>();
+                }
+
+                // Adiciona informações de tamanho de fonte
+                int newSize = 12; // Substitua pelo tamanho desejado da fonte
+                textInfo.FontSizes.Add(new Tuple<int, int, int>(start, length, newSize));
+            }
+        }
+
+
+        private void removeUnderline()
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                int selectionStart = richTextBox1.SelectionStart;
+                int selectionEnd = selectionStart + richTextBox1.SelectionLength;
+
+                for (int i = selectionStart; i < selectionEnd; i++)
+                {
+                    richTextBox1.SelectionStart = i;
+                    richTextBox1.SelectionLength = 1;
+
+                    // Obtém o estilo atual
+                    FontStyle currentStyle = richTextBox1.SelectionFont?.Style ?? FontStyle.Regular;
+
+                    // Remove o sublinhado se estiver presente
+                    if ((currentStyle & FontStyle.Underline) == FontStyle.Underline)
+                    {
+                        // Atualiza o estilo para remover o sublinhado
+                        FontStyle newStyle = currentStyle & ~FontStyle.Underline;
+                        richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, newStyle);
+
+                        // Remove informações de sublinhado
+                        textInfo.Underline?.RemoveAll(t => t.Item1 <= i && i < t.Item2);
+                    }
+                }
+
+                // Restaura a seleção original
+                richTextBox1.SelectionStart = selectionStart;
+                richTextBox1.SelectionLength = selectionEnd - selectionStart;
+            }
+        }
+
+
+
+        private void changeFontSize(int newSize)
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                int selectionStart = richTextBox1.SelectionStart;
+                int selectionEnd = selectionStart + richTextBox1.SelectionLength;
+
+                for (int i = selectionStart; i < selectionEnd;)
+                {
+                    richTextBox1.SelectionStart = i;
+                    richTextBox1.SelectionLength = 1;
+
+                    Font currentFont = richTextBox1.SelectionFont;
+
+                    if (currentFont != null)
+                    {
+                        // Verifica se o tamanho desejado é diferente do tamanho atual
+                        if (currentFont.Size != newSize)
+                        {
+                            Font newFont = new Font(currentFont.FontFamily, newSize, currentFont.Style);
+                            richTextBox1.SelectionFont = newFont;
+
+                            // Adiciona informações de tamanho de fonte
+                            if (textInfo.FontSizes == null)
+                            {
+                                textInfo.FontSizes = new List<Tuple<int, int, int>>();
+                            }
+                            textInfo.FontSizes.Add(new Tuple<int, int, int>(i, i + 1, newSize));
+                        }
+                    }
+
+                    i++;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+        // Restante do seu código...
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedItem != null)
+            {
+                int newSize = Convert.ToInt32(comboBox2.SelectedItem.ToString());
+                changeFontSize(newSize);
+            }
+        }
+
+        // Restante do seu código...
+
+        private string loadText()
+        {
+            string nomeArquivo = $"mkonjibhuvgycftxdrzseawqNote{nomeCaderno}{nomeNota}awqzsexdrcftvgybhunjimko.txt";
+
+            if (File.Exists(nomeArquivo))
+            {
+                using (StreamReader file = new StreamReader(nomeArquivo))
+                {
+                    string rtfContent = file.ReadToEnd();
+
+                    if (!string.IsNullOrEmpty(rtfContent))
+                    {
+                        richTextBox1.Rtf = rtfContent.Trim();
+
+                        string json = file.ReadLine();
+
+                        if (!string.IsNullOrEmpty(json))
+                        {
+                            textInfo = JsonConvert.DeserializeObject<TextInfo>(json);
+
+                            foreach (var item in textInfo.Underline)
+                            {
+                                if (item != null && item.Item1 < item.Item2)
+                                {
+                                    richTextBox1.Select(item.Item1, item.Item2 - item.Item1);
+                                    richTextBox1.SelectionFont = new System.Drawing.Font(richTextBox1.Font, System.Drawing.FontStyle.Underline);
+                                }
+                            }
+
+                            foreach (var item in textInfo.FontSizes)
+                            {
+                                if (item != null && item.Item1 < item.Item2)
+                                {
+                                    richTextBox1.Select(item.Item1, item.Item2 - item.Item1);
+                                    richTextBox1.SelectionFont = new Font(richTextBox1.Font.FontFamily, item.Item3);
+                                }
+                            }
+                        }
+
+                        // Muda a cor do texto selecionado para vermelho
+                        if (modoCor == "light")
+                        {
+                            richTextBox1.SelectAll();
+                            richTextBox1.SelectionColor = Color.Black;
+                        }
+                        else
+                        {
+                            richTextBox1.SelectAll();
+                            richTextBox1.SelectionColor = Color.White;
+                        }
+
+                        // Percorre todo o texto
+                        for (int i = 0; i < richTextBox1.TextLength; i++)
+                        {
+                            richTextBox1.Select(i, 1);
+                            // Se a cor de fundo do texto selecionado não for amarela, muda para a cor de fundo do RichTextBox
+                            if (richTextBox1.SelectionBackColor != Color.FromArgb(66, 66, 0))
+                            {
+                                richTextBox1.SelectionBackColor = richTextBox1.BackColor;
+                            }
+                            else
+                            {
+                                // Mantém a cor de fundo amarela para as partes do texto que já estão marcadas
+                                richTextBox1.SelectionBackColor = Color.FromArgb(66, 66, 0);
+                            }
+                        }
+
+                        // Remove a seleção
+                        richTextBox1.Select(0, 0);
+
+
+                    }
+                }
+            }
+
+            // Uncomment the following line to call updateHighlightedText
+            //updateHighlightedText();
+
+            return string.Empty;
+        }
+
+
+
+
+        private void saveText()
+        {
+            string nomeArquivo = $"mkonjibhuvgycftxdrzseawqNote{nomeCaderno}{nomeNota}awqzsexdrcftvgybhunjimko.txt";
+
+            using (FileStream fs = new FileStream(nomeArquivo, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                using (StreamWriter file = new StreamWriter(fs))
+                {
+                    file.WriteLine(richTextBox1.Rtf);
+
+                    string json = JsonConvert.SerializeObject(textInfo);
+                    file.WriteLine(json);
+                }
+            }
+        }
+
+
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            if ((textInfo.Underline?.Count ?? 0) > 0)
+            {
+                removeUnderline();
+            }
+            else
+            {
+                underlineText();
+            }
+        }
+
+
+        public class TextInfo
+        {
+            public List<Tuple<int, int>> Underline { get; set; }
+            public List<Tuple<int, int, int>> FontSizes { get; set; }
+            public List<Tuple<int, int, FontStyle>> FontStyles { get; set; }
+            public List<Tuple<int, int, Color>> Highlighted { get; set; }
+
+            public TextInfo()
+            {
+                Underline = new List<Tuple<int, int>>();
+                FontSizes = new List<Tuple<int, int, int>>();
+                FontStyles = new List<Tuple<int, int, FontStyle>>();
+                Highlighted = new List<Tuple<int, int, Color>>();
+            }
+        }
+
+
+
+        private void label7_MouseEnter(object sender, EventArgs e)
+        {
+            if (modoCor != "light")
+            {
+                label7.BackColor = Color.FromArgb(30, 30, 30);
+            }
+        }
+
+        private void label7_MouseLeave(object sender, EventArgs e)
+        {
+            if (modoCor != "light")
+            {
+                label7.BackColor = Color.FromArgb(24, 24, 24);
+            }
+        }
+
+        private void label8_MouseEnter(object sender, EventArgs e)
+        {
+            if (modoCor != "light")
+            {
+                label7.BackColor = Color.FromArgb(30, 30, 30);
+            }
+        }
+
+        private void label8_MouseLeave(object sender, EventArgs e)
+        {
+            if (modoCor != "light")
+            {
+                label7.BackColor = Color.FromArgb(24, 24, 24);
+            }
+        }
+
+        private void changeFontStyle(FontStyle newStyle)
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                int start = richTextBox1.SelectionStart;
+                int length = richTextBox1.SelectionLength;
+
+                // Obtém a fonte atual
+                Font currentFont = richTextBox1.SelectionFont;
+
+                // Se a fonte atual for nula, use a fonte padrão
+                if (currentFont == null)
+                {
+                    currentFont = richTextBox1.Font;
+                }
+
+                // Cria uma nova fonte com o mesmo tamanho e estilo modificado
+                Font newFont = new Font(currentFont.FontFamily, currentFont.Size, newStyle);
+
+                // Define a nova fonte
+                richTextBox1.SelectionFont = newFont;
+
+                // Adiciona informações de estilo da fonte
+                if (textInfo.FontStyles == null)
+                {
+                    textInfo.FontStyles = new List<Tuple<int, int, FontStyle>>();
+                }
+                textInfo.FontStyles.Add(new Tuple<int, int, FontStyle>(start, start + length, newStyle));
+            }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            toggleFontStyle(FontStyle.Bold);
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            toggleFontStyle(FontStyle.Italic);
+        }
+
+        private void toggleFontStyle(FontStyle fontStyle)
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                int start = richTextBox1.SelectionStart;
+                int length = richTextBox1.SelectionLength;
+
+                // Obtém a fonte atual
+                Font currentFont = richTextBox1.SelectionFont;
+
+                // Se a fonte atual for nula, use a fonte padrão
+                if (currentFont == null)
+                {
+                    currentFont = richTextBox1.Font;
+                }
+
+                // Verifica se o estilo já está aplicado
+                bool isStyleApplied = (currentFont.Style & fontStyle) == fontStyle;
+
+                // Se estiver aplicado, remove o estilo, caso contrário, adiciona o estilo
+                FontStyle newStyle = isStyleApplied ? currentFont.Style & ~fontStyle : currentFont.Style | fontStyle;
+
+                // Cria uma nova fonte com o mesmo tamanho e estilo modificado
+                Font newFont = new Font(currentFont.FontFamily, currentFont.Size, newStyle);
+
+                // Define a nova fonte
+                richTextBox1.SelectionFont = newFont;
+
+                // Adiciona ou remove informações de estilo da fonte conforme necessário
+                if (textInfo.FontStyles == null)
+                {
+                    textInfo.FontStyles = new List<Tuple<int, int, FontStyle>>();
+                }
+
+                if (isStyleApplied)
+                {
+                    // Remove o estilo
+                    textInfo.FontStyles.RemoveAll(t => t.Item1 <= start && start < t.Item2);
+                }
+                else
+                {
+                    // Adiciona o estilo
+                    textInfo.FontStyles.Add(new Tuple<int, int, FontStyle>(start, start + length, newStyle));
+                }
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            toggleHighlight();
+        }
+
+        private void toggleHighlight()
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                int start = richTextBox1.SelectionStart;
+                int length = richTextBox1.SelectionLength;
+
+                // Verifica se o trecho selecionado já está marcado
+                bool isHighlighted = textInfo.Highlighted?.Any(t => t.Item1 <= start && t.Item2 >= (start + length)) ?? false;
+
+                if (isHighlighted)
+                {
+                    // Remove destaque existente na seleção
+                    removeHighlight(start, length);
+                }
+                else
+                {
+                    // Adiciona novo destaque
+                    if (textInfo.Highlighted == null)
+                    {
+                        textInfo.Highlighted = new List<Tuple<int, int, Color>>();
+                    }
+                    textInfo.Highlighted.Add(new Tuple<int, int, Color>(start, start + length, Color.FromArgb(66, 66, 0)));
+                }
+            }
+            else
+            {
+                // Se não houver seleção, desmarcará o texto
+                removeHighlight(richTextBox1.SelectionStart, richTextBox1.SelectionLength);
+            }
+
+            // Atualiza as áreas destacadas imediatamente
+            updateHighlightedText();
+        }
+
+
+        private void removeHighlight(int start, int length)
+        {
+            if (textInfo.Highlighted != null)
+            {
+                // Cria uma lista para armazenar os novos destaques
+                List<Tuple<int, int, Color>> newHighlighted = new List<Tuple<int, int, Color>>();
+
+                foreach (var highlightInfo in textInfo.Highlighted)
+                {
+                    int highlightStart = highlightInfo.Item1;
+                    int highlightEnd = highlightInfo.Item2;
+
+                    // Adiciona à nova lista as partes que não são afetadas pela remoção
+                    if (start >= highlightEnd || (start + length) <= highlightStart)
+                    {
+                        newHighlighted.Add(highlightInfo);
+                    }
+                    else
+                    {
+                        // Atualiza a nova lista dividindo o destaque original
+                        if (start > highlightStart)
+                        {
+                            newHighlighted.Add(new Tuple<int, int, Color>(highlightStart, start, highlightInfo.Item3));
+                        }
+
+                        if ((start + length) < highlightEnd)
+                        {
+                            newHighlighted.Add(new Tuple<int, int, Color>(start + length, highlightEnd, highlightInfo.Item3));
+                        }
+                    }
+                }
+
+                // Atualiza a lista de destaques
+                textInfo.Highlighted = newHighlighted;
+            }
+        }
+
+
+
+
+
+
+
+
+        private void updateHighlightedText()
+        {
+            // Limpe o destaque em todo o texto
+            richTextBox1.SelectAll();
+            richTextBox1.SelectionBackColor = richTextBox1.BackColor;
+            richTextBox1.DeselectAll();
+
+            // Aplica destaque nas áreas especificadas em textInfo.Highlighted
+            if (textInfo?.Highlighted != null)
+            {
+                foreach (var highlightInfo in textInfo.Highlighted)
+                {
+                    int start = highlightInfo.Item1;
+                    int length = highlightInfo.Item2 - start;
+
+                    // Garante que o início e o comprimento estejam dentro dos limites do texto
+                    start = Math.Max(start, 0);
+                    length = Math.Min(length, richTextBox1.TextLength - start);
+
+                    // Seleciona a parte do texto
+                    richTextBox1.Select(start, length);
+
+                    // Aplica a marcação, mantendo as configurações existentes
+                    richTextBox1.SelectionBackColor = highlightInfo.Item3;
+                }
+
+                // Desseleciona o texto para garantir que a formatação não afete o texto digitado posteriormente
+                richTextBox1.DeselectAll();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem != null && richTextBox1.SelectionLength > 0)
+            {
+                // Obtém a fonte selecionada no ComboBox
+                string selectedFontName = comboBox1.SelectedItem.ToString();
+
+                int selectionStart = richTextBox1.SelectionStart;
+                int selectionEnd = selectionStart + richTextBox1.SelectionLength;
+
+                // Garante que a seleção esteja dentro dos limites do texto
+                if (selectionEnd > richTextBox1.TextLength)
+                {
+                    selectionEnd = richTextBox1.TextLength;
+                }
+
+                // Aplica a nova fonte a cada caractere na seleção
+                for (int i = selectionStart; i < selectionEnd; i++)
+                {
+                    richTextBox1.SelectionStart = i;
+                    richTextBox1.SelectionLength = 1;
+
+                    // Obtém a fonte atual
+                    Font currentFont = richTextBox1.SelectionFont;
+
+                    // Cria uma nova fonte com o mesmo tamanho e estilo da fonte atual, mas com a família de fontes selecionada
+                    Font newFont = new Font(selectedFontName, currentFont?.Size ?? 12, currentFont?.Style ?? FontStyle.Regular);
+
+                    // Define a nova fonte no controle RichTextBox
+                    richTextBox1.SelectionFont = newFont;
+
+                    // Adiciona informações de estilo da fonte
+                    if (textInfo.FontStyles == null)
+                    {
+                        textInfo.FontStyles = new List<Tuple<int, int, FontStyle>>();
+                    }
+                    textInfo.FontStyles.Add(new Tuple<int, int, FontStyle>(i, i + 1, newFont.Style));
+                }
+
+                // Restaura a seleção original
+                richTextBox1.SelectionStart = selectionStart;
+                richTextBox1.SelectionLength = selectionEnd - selectionStart;
+            }
+        }
+
+        private void label9_MouseEnter(object sender, EventArgs e)
+        {
+            label9.BackColor = Color.FromArgb(30, 30, 30);
+        }
+
+        private void label9_MouseLeave(object sender, EventArgs e)
+        {
+            label9.BackColor = Color.FromArgb(24, 24, 24);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            if (panel1.Visible == false || panel2.Visible == false)
+            {
+                panel1.Visible = true;
+                panel2.Visible = true;
+                if (panel1.Visible == true)
+                {
+                    label3.Font = new Font(FontFamily.GenericSerif, 14, FontStyle.Bold);
+                    label5.Font = new Font(FontFamily.GenericSerif, 14, FontStyle.Regular);
+                }
+                else
+                {
+                    label3.Font = new Font(FontFamily.GenericSerif, 14, FontStyle.Regular);
+                }
+                if (panel2.Visible == true)
+                {
+                    label10.Font = new Font("Arial", 16, FontStyle.Bold);
+                }
+
+                label17.Text = nomeCaderno;
+                label19.Text = nomeNota;
+            }
+            else
+            {
+                Console.Write("");
+            }
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            apagarNota();
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+            apagarNota();
+        }
+
+        private void apagarNota()
+        {
+            string caminhoDoArquivo = $"mkonjibhuvgycftxdrzseawqNote{nomeCaderno}{nomeNota}awqzsexdrcftvgybhunjimko.txt";
+
+            // Verifica se o arquivo existe
+            if (File.Exists(caminhoDoArquivo))
+            {
+                // Se o arquivo existir, deleta o arquivo
+                File.Delete(caminhoDoArquivo);
+
+
+            }
+
+            string caminhoDoArquivoNotas = $"mkonjibhuvgycftxdrzseawqNotes{nomeCaderno}awqzsexdrcftvgybhunjimko.txt";
+
+            // Nome que você deseja remover
+            string nomeParaRemover = $"{nomeNota}";
+
+            // Lê todas as linhas do arquivo
+            var linhas = File.ReadAllLines(caminhoDoArquivoNotas).ToList();
+
+            // Remove a linha que contém o nome especificado
+            linhas.Remove(nomeParaRemover);
+
+            // Escreve as linhas de volta no arquivo
+            File.WriteAllLines(caminhoDoArquivoNotas, linhas);
+
+            //Form1 form1 = new Form1();
+
+            //form1.Show();
+
+            this.Close();
+
+        }
+
+
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form4_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+        }
+        
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+            
+        }
+        
+    }
+}
